@@ -1,0 +1,22 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'context-menu':
+  'atom-text-editor': [
+    {
+      'label': 'Toggle python-nose-test'
+      'command': 'python-nose-test:toggle'
+    }
+  ]
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'python-nose-test'
+      'submenu': [
+        {
+          'label': 'Toggle'
+          'command': 'python-nose-test:toggle'
+        }
+      ]
+    ]
+  }
+]
