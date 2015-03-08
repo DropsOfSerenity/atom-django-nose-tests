@@ -27,36 +27,5 @@ describe "PythonNoseTest", ->
 
       runs ->
         expect(workspaceElement.querySelector('.python-nose-test')).toExist()
-
-        pythonNoseTestElement = workspaceElement.querySelector('.python-nose-test')
-        expect(pythonNoseTestElement).toExist()
-
-        pythonNoseTestPanel = atom.workspace.panelForItem(pythonNoseTestElement)
-        expect(pythonNoseTestPanel.isVisible()).toBe true
         atom.commands.dispatch workspaceElement, 'python-nose-test:toggle'
-        expect(pythonNoseTestPanel.isVisible()).toBe false
-
-    it "hides and shows the view", ->
-      # This test shows you an integration test testing at the view level.
-
-      # Attaching the workspaceElement to the DOM is required to allow the
-      # `toBeVisible()` matchers to work. Anything testing visibility or focus
-      # requires that the workspaceElement is on the DOM. Tests that attach the
-      # workspaceElement to the DOM are generally slower than those off DOM.
-      jasmine.attachToDOM(workspaceElement)
-
-      expect(workspaceElement.querySelector('.python-nose-test')).not.toExist()
-
-      # This is an activation event, triggering it causes the package to be
-      # activated.
-      atom.commands.dispatch workspaceElement, 'python-nose-test:toggle'
-
-      waitsForPromise ->
-        activationPromise
-
-      runs ->
-        # Now we can test for view visibility
-        pythonNoseTestElement = workspaceElement.querySelector('.python-nose-test')
-        expect(pythonNoseTestElement).toBeVisible()
-        atom.commands.dispatch workspaceElement, 'python-nose-test:toggle'
-        expect(pythonNoseTestElement).not.toBeVisible()
+        expect(workspaceElement.querySelector('.python-nose-test')).not.toExist()

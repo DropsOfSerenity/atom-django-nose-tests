@@ -1,5 +1,8 @@
 PythonNoseTestView = require '../lib/python-nose-test-view'
 
 describe "PythonNoseTestView", ->
-  it "has one valid test", ->
-    expect("life").toBe "easy"
+  describe "::write", ->
+    it "appends content to the results element", ->
+      view = new PythonNoseTestView()
+      view.write "test"
+      expect(view.results.text()).toBe "test"
