@@ -24,7 +24,6 @@ class PythonNoseTestView extends View
     @element.remove()
 
   toggle: ->
-    console.log("running that shit");
     if @hasParent()
       @detach()
     else

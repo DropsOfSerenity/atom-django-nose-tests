@@ -9,4 +9,4 @@
 # https://atom.io/docs/latest/advanced/keymaps
 'atom-workspace':
   'ctrl-alt-o': 'python-nose-test:toggle'
-  'ctrl-alt-shift-o': 'python-nose-test:run-test'
+  'ctrl-alt-shift-o': 'python-nose-test:test-file'
