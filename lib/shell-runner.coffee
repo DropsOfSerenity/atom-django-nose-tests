@@ -3,27 +3,33 @@
 module.exports =
   class ShellRunner
     constructor: (params) ->
-      console.log(params)
-      @init(params)
+      @initialize(params)
 
-    init: (params) ->
+    initialize: (params) ->
       @params = params || throw "Missing ::params argument"
       @write = params.write || throw "Missing ::write parameter"
+      console.log @params
 
     run: ->
-      @process = @createProcess()
+      fullCommand = "cd #{@params.cwd()} && #{@params.command()}; exit\n"
+      @process = @createProcess(fullCommand)
 
     stdout: (output) =>
-      console.log 'params, ' + @params
       @params.write output
 
     stderr: (output) =>
       @params.write output
 
-    createProcess: =>
-      command = 'ps'
-      args = ['-ef']
-      exit = (code) -> console.log("ps -ef exited with #{code}")
+    createProcess: (fullCommand) =>
+      command = 'bash'
+      args = ['-c', '-l', fullCommand]
+      exit = null
 
-      process = new BufferedProcess({command, args, @stdout, exit})
+      process = new BufferedProcess(
+        command: command,
+        args: args,
+        options: {},
+        stdout: @stdout,
+        stderr: @stderr,
+        exit: exit)
       process
