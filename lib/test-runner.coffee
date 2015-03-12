@@ -15,7 +15,7 @@ class TestRunner
     dj = new djangoManage
     @manage = dj.discover()
     if !@manage
-      @params.write "Couldn't locate manage.py"
+      @params.write "Couldn't locate manage.py make sure you are inside a django project."
       return
 
     @shell = new shellRunner({
@@ -28,5 +28,5 @@ class TestRunner
     return
 
   command: =>
-    var pythonCommand = "python"
+    pythonCommand = "python"
     "#{pythonCommand} #{@manage} test"

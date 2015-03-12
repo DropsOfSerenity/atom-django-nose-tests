@@ -21,15 +21,10 @@ module.exports =
       @params.write output
 
     createProcess: (fullCommand) =>
-      command = 'bash'
+      command = 'zsh'
       args = ['-c', '-l', fullCommand]
       exit = null
 
-      process = new BufferedProcess(
-        command: command,
-        args: args,
-        options: {},
-        stdout: @stdout,
-        stderr: @stderr,
-        exit: exit)
+      process = new BufferedProcess(command: command, args: args, options: {},
+                                    stdout: @stdout, stderr: @stderr, exit: exit)
       process
