@@ -3,6 +3,9 @@ class CurrentFile
   cwd: ->
     atom.project.getPaths()[0]
 
+  baseDir: ->
+    @cwd().split(path.sep).pop()
+
   filePath: ->
     @editor() and
     @editor().buffer and
@@ -22,3 +25,7 @@ class CurrentFile
         cursor.getBufferRow() + 1
       else
         null
+
+  pythonCommand: =>
+    console.log "python-nose-test.#{@baseDir()}Python"
+    return atom.config.get("python-nose-test.#{@baseDir()}Python") || "python"

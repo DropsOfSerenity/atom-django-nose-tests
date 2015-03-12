@@ -5,9 +5,9 @@ currentFile = require './current-file'
 module.exports=
 class TestRunner
   constructor: (params) ->
-    @init(params)
+    @initialize(params)
 
-  init: (params) ->
+  initialize: (params) ->
     @params = params
     @currentFile = new currentFile
 
@@ -28,5 +28,5 @@ class TestRunner
     return
 
   command: =>
-    pythonCommand = "python"
+    pythonCommand = @currentFile.pythonCommand()
     "#{pythonCommand} #{@manage} test"
