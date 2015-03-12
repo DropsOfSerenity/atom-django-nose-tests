@@ -2,6 +2,7 @@ _ = require 'underscore-plus'
 {View} = require 'atom-space-pen-views'
 testRunner = require './test-runner'
 ansiToHtml = require 'ansi-to-html'
+djangoManage = require './django-manage'
 
 
 module.exports =

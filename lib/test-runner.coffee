@@ -1,4 +1,5 @@
 shellRunner = require './shell-runner'
+djangoManage = require './django-manage'
 
 module.exports=
 class TestRunner
@@ -9,7 +10,15 @@ class TestRunner
     @params = params
 
   run: ->
+    dj = new djangoManage
+    manage = dj.discover()
+    if !manage
+      @params.write "Couldn't locate manage.py"
+      return
+
     @shell = new shellRunner({
       write: @params.write
     })
     @shell.run()
+
+    return

@@ -9,8 +9,6 @@ module.exports =
     init: (params) ->
       @params = params || throw "Missing ::params argument"
       @write = params.write || throw "Missing ::write parameter"
-      console.log @params
-      console.log @write
 
     run: ->
       @process = @createProcess()
