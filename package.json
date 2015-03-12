@@ -1,10 +1,13 @@
 {
   "name": "python-nose-test",
   "main": "./lib/python-nose-test",
-  "version": "0.0.0",
-  "description": "A short description of your package",
+  "version": "0.0.1",
+  "description": "Run Django Nose tests from within atom.",
   "activationCommands": {
-    "atom-workspace": "python-nose-test:toggle"
+    "atom-workspace": [
+      "python-nose-test:toggle",
+      "python-nose-test:test-file"
+    ]
   },
   "repository": "https://github.com/atom/python-nose-test",
   "license": "MIT",

@@ -7,6 +7,6 @@
 
 # For more detailed documentation see
 # https://atom.io/docs/latest/advanced/keymaps
-'atom-workspace':
-  'ctrl-alt-o': 'python-nose-test:toggle'
-  'ctrl-alt-shift-o': 'python-nose-test:test-file'
+'.platform-darwin atom-workspace':
+  'cmd-ctrl-o': 'python-nose-test:toggle'
+  'cmd-shift-t': 'python-nose-test:test-file'
