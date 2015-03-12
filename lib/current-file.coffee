@@ -26,6 +26,5 @@ class CurrentFile
       else
         null
 
-  pythonCommand: =>
-    console.log "python-nose-test.#{@baseDir()}Python"
-    return atom.config.get("python-nose-test.#{@baseDir()}Python") || "python"
+  pythonCommand: ->
+    atom.config.get("python-nose-test.#{@baseDir()}Python") || "python"

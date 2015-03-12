@@ -29,4 +29,7 @@ class TestRunner
 
   command: =>
     pythonCommand = @currentFile.pythonCommand()
-    "#{pythonCommand} #{@manage} test"
+    activeFile = ""
+    if @params.testFile
+      activeFile = @currentFile.activeFile()
+    "#{pythonCommand} #{@manage} test #{activeFile}"

@@ -16,6 +16,7 @@ class PythonNoseTestView extends View
   initialize: (serializeState) ->
     atom.commands.add "atom-workspace", "python-nose-test:toggle", => @toggle()
     atom.commands.add "atom-workspace", "python-nose-test:test-file", => @testFile()
+    atom.commands.add "atom-workspace", "python-nose-test:test-all", => @testAll()
 
   # Returns an object that can be retrieved when package is activated
   serialize: ->
@@ -45,6 +46,15 @@ class PythonNoseTestView extends View
     @clearAndShowPanel()
     @runner = new testRunner({
       write: @write
+      testFile: true
+    })
+    @runner.run()
+
+  testAll: =>
+    @clearAndShowPanel()
+    @runner = new testRunner({
+      write: @write
+      testFile: false
     })
     @runner.run()
 

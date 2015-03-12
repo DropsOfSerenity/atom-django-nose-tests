@@ -10,3 +10,4 @@
 '.platform-darwin atom-workspace':
   'cmd-ctrl-o': 'python-nose-test:toggle'
   'cmd-shift-t': 'python-nose-test:test-file'
+  'cmd-shift-ctrl-t': 'python-nose-test:test-all'

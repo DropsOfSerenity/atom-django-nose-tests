@@ -6,7 +6,8 @@
   "activationCommands": {
     "atom-workspace": [
       "python-nose-test:toggle",
-      "python-nose-test:test-file"
+      "python-nose-test:test-file",
+      "python-nose-test:test-all"
     ]
   },
   "repository": "https://github.com/atom/python-nose-test",
